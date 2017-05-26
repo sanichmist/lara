@@ -39,7 +39,7 @@ class PostController extends Controller
         $this->validate($request, array(
             'title' => 'required|max:255',
             'body' => 'required',
-            'slug' => 'required|min:5|max:255|alpha_dash'
+            'slug' => 'required|min:5|max:255|alpha_dash|unique:posts,slug'
         ));
 
         $post = new Post;
@@ -88,6 +88,7 @@ class PostController extends Controller
     {
         $this->validate($request, array(
             'title' => 'required|max:255',
+            'slug' => 'required|min:5|max:255|alpha_dash|unique:posts,slug',
             'body' => 'required'
         ));
 
@@ -95,6 +96,7 @@ class PostController extends Controller
 
         $post->title = $request->input('title');
         $post->body = $request->input('body');
+        $post->slug = $request->input('slug');
 
         $post->save();
 
