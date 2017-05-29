@@ -1,7 +1,41 @@
 .btn-h1-spacing {
-    margin-top:18px;
+    margin-top: 18px;
 }
 
 .form-spacing-top {
     margin-top: 30px;
+}
+
+.b2c-navbar {
+    background-color: #4E565A;
+}
+
+.b2c-navbar .navbar-nav > li > a {
+    color: #fff;
+}
+
+.b2c-navbar .navbar-nav > li > a:focus, .b2c-navbar .navbar-nav > li > a:hover {
+    background-color: #ffffff;
+    color: #4E565A;
+}
+
+.b2c-enter {
+    background-color: #7ABF66;
+    position: relative;
+}
+
+.b2c-enter a::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    top: 100%;
+    background: #7ABF66;
+    bottom: -10px;
+    border-radius: 0 0 10px 10px;
+    left: 0;
+}
+
+.b2c-enter a:focus:after, .b2c-enter a:hover:after {
+    background-color: #ffffff;
+    color: #4E565A;
 }
