@@ -5,6 +5,11 @@ use App\Post;
 
 class PagesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function getIndex()
     {
         $posts = Post::orderBy('created_at', 'desc')->limit(4)->get();
