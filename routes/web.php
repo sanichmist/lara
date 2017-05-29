@@ -17,3 +17,12 @@ Route::get('contact', 'PagesController@getContact');
 Route::get('about', 'PagesController@getAbout');
 Route::get('/', 'PagesController@getIndex');
 Route::resource('posts', 'PostController');
+Route::post('/language', [
+    'before' => 'csrf',
+    'as' => 'language-chooser',
+    'uses' => 'LanguageController@choose'
+]);
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
