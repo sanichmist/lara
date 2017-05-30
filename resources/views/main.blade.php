@@ -22,16 +22,6 @@
     @include('partials._javascript')
 
     @yield('scripts')
-<form action="lang" method="post">
-    <select name="locale">
-        <option value="en" {{ App::getLocale() == 'en' ? ' selected' : '' }}>en</option>
-        <option value="ua" {{ App::getLocale() == 'ua' ? ' selected' : '' }}>ua</option>
-        <option value="ru" {{ App::getLocale() == 'ru' ? ' selected' : '' }}>ru</option>
-    </select>
-    {!! csrf_field() !!}
-    <input type="submit" value="do it">
-</form>
 
-    {{ trans('main.login') }}
     </body>
 </html>

@@ -1,5 +1,10 @@
 <?php
 
 return [
-    'login' => 'Log In'
+    'news' => 'News',
+    'about' => 'About',
+    'tips' => 'Tips',
+    'contacts' => 'Contacts',
+    'login' => 'Log In',
+    'register' => 'or register',
 ];

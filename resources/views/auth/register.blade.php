@@ -1,76 +1,60 @@
 @extends('main')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
-                        {{ csrf_field() }}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">{{ trans('auth.register') }}</div>
+                    <div class="panel-body">
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
+                        {!! Form::open(['route' => 'register', 'data-parsley-validate' => '']) !!}
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                        {{ Form::label('last_name',trans('auth.last_name')) }}
+                        {{ Form::text('last_name', null, ['class' => 'form-control', 'required' => '', 'maxlength' => '255']) }}
 
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                        {{ Form::label('first_name',trans('auth.first_name')) }}
+                        {{ Form::text('first_name', null, ['class' => 'form-control', 'required' => '', 'maxlength' => '255']) }}
+
+                        {{ Form::label('second_name',trans('auth.second_name')) }}
+                        {{ Form::text('second_name', null, ['class' => 'form-control', 'required' => '', 'maxlength' => '255']) }}
+
+                        {{--{{ Form::label('country',trans('auth.country')) }}--}}
+                        {{--{{ Form::select(--}}
+                            {{--'country',--}}
+                            {{--[--}}
+                                {{--'+380' => trans('auth.ukraine'),--}}
+                                {{--'+799' => trans('auth.russia'),--}}
+                                {{--'+373' =>  trans('auth.belarus')--}}
+                            {{--],--}}
+                            {{--null,--}}
+                            {{--['class' => 'form-control b2c-auth-form-country', 'required' => ''])--}}
+                        {{--}}--}}
+
+                        {{--{{ Form::label('phone',trans('auth.phone')) }}--}}
+                        {{--{{ Form::text('phone', null, ['class' => 'form-control b2c-auth-form-phone', 'required' => '', 'placeholder' => '+___ (__) ___-____']) }}--}}
+
+                        {{ Form::label('password', trans('auth.password')) }}
+                        {{ Form::password('password', ['class' => 'form-control', 'required' => '']) }}
+
+                        {{ Form::label('password_confirmation', trans('auth.confirm_password')) }}
+                        {{ Form::password('password_confirmation', ['class' => 'form-control', 'required' => '']) }}
+
+                        {{ Form::submit('Create post',['class' => 'btn btn-success btn-lg btn-block', 'style' => 'margin-top:20px']) }}
+                        {!! Form::close() !!}
+                        @if ($errors->has('phone'))
+                            <span class="help-block">
+                                        <strong>{{ $errors->first('phone') }}</strong>
                                     </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+@endsection
+@section('scripts')
+    {!! Html::script('js/parsley.min.js') !!}
+    {!! Html::script('js/jquery.maskedinput.js') !!}
+    {!! Html::script('js/auth.js') !!}
 @endsection
