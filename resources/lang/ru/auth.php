@@ -4,9 +4,7 @@ return [
     'failed' => 'These credentials do not match our records.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
     'register' => 'Регистрация',
-    'last_name' => 'Фамилия',
-    'first_name' => 'Имя',
-    'second_name' => 'Отчество',
+    'name' => 'Имя',
     'country' => 'Страна',
     'ukraine' => 'Украина',
     'russia' => 'Россия',
@@ -14,4 +12,5 @@ return [
     'phone' => 'Телефон',
     'password' => 'Пароль',
     'confirm_password' => 'Повторите пароль',
+    'agreement' => 'Согласен с условиями работы сайта',
 ];

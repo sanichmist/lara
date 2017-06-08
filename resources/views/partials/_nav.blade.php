@@ -17,8 +17,11 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <div class="nav navbar-nav">
                     <li class=""><a href="">@lang('main.news')</a></li>
+                    <li class="b2c-navbar-dots"><a></a></li>
                     <li class=""><a href="">@lang('main.about')</a></li>
+                    <li class="b2c-navbar-dots"><a></a></li>
                     <li class=""><a href="">@lang('main.tips')</a></li>
+                    <li class="b2c-navbar-dots"><a></a></li>
                     <li class=""><a href="">@lang('main.contacts')</a></li>
                 </div>
                 {{--<ul class="nav navbar-nav">--}}
@@ -66,9 +69,17 @@
                            data-lang="ua">{{ \App\Http\Controllers\LanguageController::getCountryByLocale() }} <span
                                     class="caret"></span></a>
                         <ul id="b2c-language-menu" class="dropdown-menu">
-                            <li><a href="" data-lang="ua">Укр</a></li>
-                            <li><a href="" data-lang="ru">Рус</a></li>
-                            <li><a href="" data-lang="en">Анг</a></li>
+                            @if(App::getLocale() != 'ua')
+                                <li><a href="" data-lang="ua"><img src="img/ua.png"> @lang('main.ukrainian')</a></li>
+                            @endif
+
+                            @if(App::getLocale() != 'ru')
+                                <li><a href="" data-lang="ru"><img src="img/ru.png"> @lang('main.russian')</a></li>
+                            @endif
+
+                            @if(App::getLocale() != 'en')
+                                <li><a href="" data-lang="en"><img src="img/en.png"> @lang('main.english')</a></li>
+                            @endif
                         </ul>
                     </li>
                 </ul>

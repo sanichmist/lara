@@ -7,4 +7,8 @@ return [
     'contacts' => 'Contacts',
     'login' => 'Log In',
     'register' => 'or register',
+    'ukrainian' => 'Ukrainian',
+    'russian' => 'Russian',
+    'english' => 'English',
+    'search_sto' => 'Search service',
 ];

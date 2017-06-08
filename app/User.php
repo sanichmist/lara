@@ -18,8 +18,8 @@ class User extends Authenticatable
         'first_name',
         'last_name',
         'second_name',
-        //'country',
-        //'phone',
+        'country',
+        'phone',
         'password',
     ];
 
